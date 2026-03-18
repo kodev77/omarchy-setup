@@ -6,6 +6,8 @@ echo "Appending fuzzy cd functions to bashrc..."
 
 cat >> "$HOME/.bashrc" << 'BASHRC'
 
+# --- BEGIN ko omarchy-setup fuzzycd ---
+
 # Fuzzy find a directory and cd into it
 cdf() {
   local dir
@@ -69,6 +71,8 @@ cds() {
 
   builtin cd -- "$dir"
 }
+
+# --- END ko omarchy-setup fuzzycd ---
 BASHRC
 
 echo "  bash fzf-cd functions: OK"

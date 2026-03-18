@@ -3,6 +3,6 @@
 set -euo pipefail
 
 if ! pacman -Qi lvsk-calendar &>/dev/null; then
-  yay -S --noconfirm lvsk-calendar
+  sudo pacman -S --noconfirm lvsk-calendar
 fi
 echo "  lvsk-calendar: OK"
