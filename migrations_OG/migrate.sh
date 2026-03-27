@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 export REPO_DIR
 STATE_DIR="$HOME/.local/state/kodev77/omarchy-setup/migrations"
-MIGRATIONS_DIR="$REPO_DIR/migrations"
+MIGRATIONS_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 mkdir -p "$STATE_DIR"
 
