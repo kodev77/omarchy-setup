@@ -11,7 +11,7 @@ fi
 
 if ! ls "$HOME/.local/share/fonts"/BerkeleyMono*.ttf &>/dev/null; then
   echo "berkeley mono not installed, skipping"
-  exit 0
+  exit 2
 fi
 
 echo "patching fontconfig..."

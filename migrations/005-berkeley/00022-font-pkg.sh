@@ -12,7 +12,7 @@ fi
 
 if [[ ! -d "$FONT_SRC" ]]; then
   echo "berkeley mono source repo not available, skipping"
-  exit 0
+  exit 2
 fi
 
 echo "installing berkeley mono..."

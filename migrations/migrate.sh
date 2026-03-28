@@ -57,7 +57,12 @@ run_group() {
     all_done=false
     echo "$name"
     echo ""
-    if ! bash "$script"; then
+    local rc=0
+    bash "$script" || rc=$?
+    if [[ $rc -eq 2 ]]; then
+      # script skipped (e.g. missing dependency)
+      continue
+    elif [[ $rc -ne 0 ]]; then
       echo ""
       red "fail $name"
       echo ""
@@ -163,7 +168,11 @@ elif [[ "$selection" == *.sh ]]; then
   else
     echo "$selection"
     echo ""
-    if bash "$found"; then
+    rc=0
+    bash "$found" || rc=$?
+    if [[ $rc -eq 2 ]]; then
+      blue "skip $selection (dependency not available)"
+    elif [[ $rc -eq 0 ]]; then
       mark_migrated "$found_group" "$selection"
       echo ""
       green "done $selection"
