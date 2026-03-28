@@ -135,7 +135,12 @@ elif [[ "$selection" == "[Migrate All]" ]]; then
   done
   green "all migrations complete"
   echo ""
-  blue "reboot to apply changes"
+  choice=$(printf 'yes\nno' | walker -d -p "reboot now to apply changes?" 2>/dev/null) || choice="no"
+  if [[ "$choice" == "yes" ]]; then
+    systemctl reboot
+  else
+    blue "reboot to apply changes"
+  fi
 elif [[ "$selection" == *.sh ]]; then
   # single script
   found=""
