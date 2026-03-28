@@ -13,11 +13,24 @@ green() { printf '\033[0;32m%s\033[0m\n' "$*"; }
 blue()  { printf '\033[0;34m%s\033[0m\n' "$*"; }
 
 is_migrated() {
-  [[ -f "$STATE_DIR/$1" ]]
+  local group="$1" name="$2"
+  [[ -f "$STATE_DIR/${group}__${name}" ]]
 }
 
 mark_migrated() {
-  touch "$STATE_DIR/$1"
+  local group="$1" name="$2"
+  touch "$STATE_DIR/${group}__${name}"
+}
+
+is_group_done() {
+  local dir="$1"
+  local group_name
+  group_name="$(basename "$dir")"
+  for script in "$dir"/*.sh; do
+    [ -f "$script" ] || continue
+    is_migrated "$group_name" "$(basename "$script")" || return 1
+  done
+  return 0
 }
 
 run_group() {
@@ -25,15 +38,20 @@ run_group() {
   local group_name
   group_name="$(basename "$group_dir")"
   local all_done=true
+  local header_shown=false
 
   for script in "$group_dir"/*.sh; do
     [ -f "$script" ] || continue
     local name
     name="$(basename "$script")"
 
-    if is_migrated "$name"; then
-      blue "skip $name (already migrated)"
+    if is_migrated "$group_name" "$name"; then
       continue
+    fi
+
+    if ! $header_shown; then
+      green "run $group_name"
+      header_shown=true
     fi
 
     all_done=false
@@ -52,7 +70,7 @@ run_group() {
       continue
     fi
 
-    mark_migrated "$name"
+    mark_migrated "$group_name" "$name"
   done
 
   if $all_done; then
@@ -74,48 +92,89 @@ if [[ ${#groups[@]} -eq 0 ]]; then
   exit 0
 fi
 
-echo ""
-blue "migrate"
-echo ""
-
-is_group_done() {
-  local dir="$1"
+# build fzf list: rollback, all groups + individual scripts
+items=()
+items+=("[Rollback]")
+items+=("[Migrate All]")
+for dir in "${groups[@]}"; do
+  group_name="$(basename "$dir")"
+  if is_group_done "$dir"; then
+    items+=("<$group_name> \033[0;32m(done)\033[0m")
+  else
+    items+=("<$group_name>")
+  fi
   for script in "$dir"/*.sh; do
     [ -f "$script" ] || continue
-    is_migrated "$(basename "$script")" || return 1
+    name="$(basename "$script")"
+    if is_migrated "$group_name" "$name"; then
+      items+=("  $name \033[0;32m(done)\033[0m")
+    else
+      items+=("  $name")
+    fi
   done
-  return 0
-}
-
-echo "0) all groups"
-for i in "${!groups[@]}"; do
-  name="$(basename "${groups[$i]}")"
-  if is_group_done "${groups[$i]}"; then
-    printf "%d) %s (done)\n" $((i + 1)) "$name"
-  else
-    printf "%d) %s\n" $((i + 1)) "$name"
-  fi
 done
 
-echo ""
-read -rp "select an option [0]: " choice
-echo ""
-choice="${choice:-0}"
+selection=$(printf '%b\n' "${items[@]}" | fzf --ansi --prompt="migrate > " --height=~20 --reverse --no-info) || { blue "cancelled."; exit 0; }
 
-if [[ "$choice" == "0" ]]; then
+# strip ansi codes and status suffix
+selection=$(echo "$selection" | sed 's/\x1b\[[0-9;]*m//g')
+selection="${selection% (done)}"
+selection="${selection#<}"; selection="${selection%>}"
+# strip leading whitespace
+selection="${selection#"${selection%%[![:space:]]*}"}"
+
+if [[ "$selection" == "[Rollback]" ]]; then
+  exec bash "$MIGRATIONS_DIR/rollback/rollback.sh"
+elif [[ "$selection" == "[Migrate All]" ]]; then
+  # prompt for sudo upfront so scripts don't pause mid-run
+  if ! sudo -n true 2>/dev/null; then
+    sudo -v
+  fi
   for group_dir in "${groups[@]}"; do
     run_group "$group_dir"
   done
   green "all migrations complete"
   echo ""
-else
-  idx=$((choice - 1))
-  if [[ $idx -ge 0 && $idx -lt ${#groups[@]} ]]; then
-    run_group "${groups[$idx]}"
-    green "migration complete"
-    echo ""
-  else
-    red "invalid selection."
+  blue "reboot to apply changes"
+elif [[ "$selection" == *.sh ]]; then
+  # single script
+  found=""
+  found_group=""
+  for dir in "${groups[@]}"; do
+    if [ -f "$dir/$selection" ]; then
+      found="$dir/$selection"
+      found_group="$(basename "$dir")"
+      break
+    fi
+  done
+
+  if [[ -z "$found" ]]; then
+    red "script not found: $selection"
     exit 1
   fi
+
+  if is_migrated "$found_group" "$selection"; then
+    blue "skip $selection (already migrated)"
+  else
+    echo "$selection"
+    echo ""
+    if bash "$found"; then
+      mark_migrated "$found_group" "$selection"
+      echo ""
+      green "done $selection"
+    else
+      echo ""
+      red "fail $selection"
+      exit 1
+    fi
+  fi
+else
+  # group
+  for dir in "${groups[@]}"; do
+    if [[ "$(basename "$dir")" == "$selection" ]]; then
+      run_group "$dir"
+      green "migration complete"
+      break
+    fi
+  done
 fi
