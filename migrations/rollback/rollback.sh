@@ -72,11 +72,9 @@ rollback_group() {
     unmark_migrated "$group_name" "$name"
   done
 
-  if $any_rolled_back; then
-    echo ""
-    green "done rollback $group_name"
-  else
+  if ! $any_rolled_back; then
     blue "skip $group_name (not migrated)"
+    return 1
   fi
 }
 
@@ -133,7 +131,7 @@ for group_name in "${reversed[@]}"; do
   done
 done
 
-selection=$(printf '%b\n' "${items[@]}" | fzf --ansi --prompt="rollback > " --height=~20 --reverse --no-info) || { blue "cancelled."; exit 0; }
+selection=$(printf '%b\n' "${items[@]}" | fzf --ansi --prompt="rollback > " --height=100% --reverse --no-info) || exit 2
 
 # strip ansi codes and status suffix
 selection=$(echo "$selection" | sed 's/\x1b\[[0-9;]*m//g')
@@ -143,19 +141,28 @@ selection="${selection#<}"; selection="${selection%>}"
 selection="${selection#"${selection%%[![:space:]]*}"}"
 
 if [[ "$selection" == "[Rollback All]" ]]; then
-  if ! sudo -n true 2>/dev/null; then
-    sudo -v
-  fi
+  any_pending=false
   for group_name in "${reversed[@]}"; do
-    rollback_group "$group_name"
+    is_group_migrated "$group_name" && { any_pending=true; break; }
   done
-  green "full rollback complete"
-  echo ""
-  choice=$(printf 'yes\nno' | walker -d -p "reboot now to apply changes?" 2>/dev/null) || choice="no"
-  if [[ "$choice" == "yes" ]]; then
-    systemctl reboot
-  else
-    blue "reboot to apply changes"
+  if $any_pending; then
+    if ! sudo -n true 2>/dev/null; then
+      sudo -v
+    fi
+  fi
+  any_rolled_back=false
+  for group_name in "${reversed[@]}"; do
+    rollback_group "$group_name" && any_rolled_back=true
+  done
+  green "rollback complete"
+  if $any_rolled_back; then
+    echo ""
+    read -rp "reboot now to apply changes? [y/N] " answer
+    if [[ "${answer,,}" == "y" ]]; then
+      systemctl reboot
+    else
+      blue "reboot to apply changes"
+    fi
   fi
 elif [[ "$selection" == *.sh ]]; then
   # single script rollback
@@ -183,7 +190,7 @@ elif [[ "$selection" == *.sh ]]; then
     if bash "$found"; then
       unmark_migrated "$found_group" "$selection"
       echo ""
-      green "done rollback $selection"
+      green "rollback complete"
     else
       echo ""
       red "fail $selection"

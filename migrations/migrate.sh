@@ -80,9 +80,7 @@ run_group() {
 
   if $all_done; then
     blue "skip $group_name (already migrated)"
-  else
-    echo ""
-    green "done $group_name"
+    return 1
   fi
 }
 
@@ -97,10 +95,14 @@ if [[ ${#groups[@]} -eq 0 ]]; then
   exit 0
 fi
 
-# build fzf list: rollback, all groups + individual scripts
+did_work=false
+
+while true; do
+
+# build fzf list: migrate all, rollback, all groups + individual scripts
 items=()
-items+=("[Rollback]")
 items+=("[Migrate All]")
+items+=("[Rollback...]")
 for dir in "${groups[@]}"; do
   group_name="$(basename "$dir")"
   if is_group_done "$dir"; then
@@ -119,7 +121,12 @@ for dir in "${groups[@]}"; do
   done
 done
 
-selection=$(printf '%b\n' "${items[@]}" | fzf --ansi --prompt="migrate > " --height=~20 --reverse --no-info) || { blue "cancelled."; exit 0; }
+selection=$(printf '%b\n' "${items[@]}" | fzf --ansi --prompt="migrate > " --height=100% --reverse --no-info) || {
+  if ! $did_work; then
+    blue "cancelled."
+  fi
+  exit 0
+}
 
 # strip ansi codes and status suffix
 selection=$(echo "$selection" | sed 's/\x1b\[[0-9;]*m//g')
@@ -128,23 +135,38 @@ selection="${selection#<}"; selection="${selection%>}"
 # strip leading whitespace
 selection="${selection#"${selection%%[![:space:]]*}"}"
 
-if [[ "$selection" == "[Rollback]" ]]; then
-  exec bash "$MIGRATIONS_DIR/rollback/rollback.sh"
+if [[ "$selection" == "[Rollback...]" ]]; then
+  rc=0
+  bash "$MIGRATIONS_DIR/rollback/rollback.sh" || rc=$?
+  if [[ $rc -eq 2 ]]; then
+    continue
+  fi
+  did_work=true
+  break
 elif [[ "$selection" == "[Migrate All]" ]]; then
   # prompt for sudo upfront so scripts don't pause mid-run
-  if ! sudo -n true 2>/dev/null; then
-    sudo -v
-  fi
-  for group_dir in "${groups[@]}"; do
-    run_group "$group_dir"
+  any_pending=false
+  for dir in "${groups[@]}"; do
+    is_group_done "$dir" || { any_pending=true; break; }
   done
-  green "all migrations complete"
-  echo ""
-  choice=$(printf 'yes\nno' | walker -d -p "reboot now to apply changes?" 2>/dev/null) || choice="no"
-  if [[ "$choice" == "yes" ]]; then
-    systemctl reboot
-  else
-    blue "reboot to apply changes"
+  if $any_pending; then
+    if ! sudo -n true 2>/dev/null; then
+      sudo -v
+    fi
+  fi
+  any_migrated=false
+  for group_dir in "${groups[@]}"; do
+    run_group "$group_dir" && any_migrated=true
+  done
+  green "migrate complete"
+  if $any_migrated; then
+    echo ""
+    read -rp "reboot now to apply changes? [y/N] " answer
+    if [[ "${answer,,}" == "y" ]]; then
+      systemctl reboot
+    else
+      blue "reboot to apply changes"
+    fi
   fi
 elif [[ "$selection" == *.sh ]]; then
   # single script
@@ -175,7 +197,7 @@ elif [[ "$selection" == *.sh ]]; then
     elif [[ $rc -eq 0 ]]; then
       mark_migrated "$found_group" "$selection"
       echo ""
-      green "done $selection"
+      green "migrate complete"
     else
       echo ""
       red "fail $selection"
@@ -187,8 +209,11 @@ else
   for dir in "${groups[@]}"; do
     if [[ "$(basename "$dir")" == "$selection" ]]; then
       run_group "$dir"
-      green "migration complete"
+      green "migrate complete"
       break
     fi
   done
 fi
+
+break
+done
