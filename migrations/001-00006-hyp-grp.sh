@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hyprland stacked groupbar for window groups
+# hyprland: hyprland stacked groupbar for window groups
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

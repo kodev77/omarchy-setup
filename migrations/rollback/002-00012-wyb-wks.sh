@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback waybar workspaces 6-10
+# waybar: rollback waybar workspaces 6-10
 set -euo pipefail
 
 WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"

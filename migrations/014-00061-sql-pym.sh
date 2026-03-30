@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# python library for connecting to sql server databases via freetds
+# sqlserver: python library for connecting to sql server databases via freetds
 set -euo pipefail
 
 yay -S --needed --noconfirm python-pip

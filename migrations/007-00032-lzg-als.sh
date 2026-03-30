@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bashrc: lazygit alias
+# lazygit: bashrc: lazygit alias
 set -euo pipefail
 
 if grep -q "alias lg='lazygit'" "$HOME/.bashrc" 2>/dev/null; then

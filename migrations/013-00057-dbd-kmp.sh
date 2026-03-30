@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dadbod keybindings: dbui toggle, run line/selection/file, connection select, format output
+# dadbod: dadbod keybindings: dbui toggle, run line/selection/file, connection select, format output
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

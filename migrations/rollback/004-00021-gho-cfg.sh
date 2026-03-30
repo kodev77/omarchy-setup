@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback ghostty config
+# terminal: rollback ghostty config
 set -euo pipefail
 
 GHOSTTY="$HOME/.config/ghostty/config"

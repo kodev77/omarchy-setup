@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback lua utilities for query execution, visual selection, connection picker, and popup clipboard
 set -euo pipefail
 
 FILE="$HOME/.config/nvim/lua/util/dadbod-helpers.lua"

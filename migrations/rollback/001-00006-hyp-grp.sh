@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback hyprland stacked groupbar
+# hyprland: rollback hyprland stacked groupbar
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

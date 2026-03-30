@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ghostty rollback: font size 13 → 9
+# hello: ghostty rollback: font size 13 → 9
 set -euo pipefail
 
 GHOSTTY="$HOME/.config/ghostty/config"

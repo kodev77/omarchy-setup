@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# neovim: rollback lazyvim extra: debug adapter protocol (DAP) core
 set -euo pipefail
 
 LAZYVIM="$HOME/.config/nvim/lazyvim.json"

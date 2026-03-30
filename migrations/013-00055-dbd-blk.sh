@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# blink.cmp integration: registers dadbod-completion as a source for sql filetypes
+# dadbod: blink.cmp integration: registers dadbod-completion as a source for sql filetypes
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

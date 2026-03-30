@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim keymaps: quit-and-cd-shell (leader-qd) and quit-to-home (leader-qh)
+# neovim-cdexit: neovim keymaps: quit-and-cd-shell (leader-qd) and quit-to-home (leader-qh)
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sync neovim plugins, treesitter parsers, and mason tools
+# dotnet: sync neovim plugins, treesitter parsers, and mason tools
 set -euo pipefail
 
 echo "syncing neovim plugins..."

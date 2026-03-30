@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# remove ko omarchy-setup git config additions
+# hello: remove ko omarchy-setup git config additions
 set -euo pipefail
 
 CONFIG="$HOME/.config/git/config"

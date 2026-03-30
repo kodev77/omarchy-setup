@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sync neovim plugins after dadbod setup
+# dadbod: sync neovim plugins after dadbod setup
 set -euo pipefail
 
 echo "syncing neovim plugins..."

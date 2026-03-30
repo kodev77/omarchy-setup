@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback waybar bar height, font size, bold styling
+# waybar: rollback waybar bar height, font size, bold styling
 set -euo pipefail
 
 # --- waybar/config.jsonc: bar height ---

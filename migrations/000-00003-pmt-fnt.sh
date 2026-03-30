@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ghostty patch: font size 9 → 13
+# hello: ghostty patch: font size 9 → 13
 set -euo pipefail
 
 GHOSTTY="$HOME/.config/ghostty/config"

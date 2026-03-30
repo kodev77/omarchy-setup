@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lazyvim extra: angular language support
+# typescript: lazyvim extra: angular language support
 set -euo pipefail
 
 LAZYVIM="$HOME/.config/nvim/lazyvim.json"

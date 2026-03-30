@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# mysql: rollback mariadb client for mysql-compatible database connections
 set -euo pipefail
 
 if ! pacman -Qi mariadb-clients &>/dev/null; then

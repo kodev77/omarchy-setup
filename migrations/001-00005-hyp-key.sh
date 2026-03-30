@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hyprland resize keybindings: Super+Alt+arrows
+# hyprland: hyprland resize keybindings: Super+Alt+arrows
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

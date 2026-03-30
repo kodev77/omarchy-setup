@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# typescript: rollback lazyvim extra: angular language support
 set -euo pipefail
 
 LAZYVIM="$HOME/.config/nvim/lazyvim.json"

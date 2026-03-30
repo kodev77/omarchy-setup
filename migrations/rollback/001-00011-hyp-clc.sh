@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback hyprland calendar window rule
+# hyprland: rollback hyprland calendar window rule
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

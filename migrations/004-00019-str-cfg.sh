@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# starship patches: two-line prompt with user@host, full path, git branch color, no truncation
+# terminal: starship patches: two-line prompt with user@host, full path, git branch color, no truncation
 set -euo pipefail
 
 STARSHIP="$HOME/.config/starship.toml"

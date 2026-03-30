@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install Berkeley Mono font from local repo if available
+# berkeley: install Berkeley Mono font from local repo if available
 set -euo pipefail
 
 FONT_SRC="$HOME/repo/repository1-c/L3/fonts/Berkeley Mono TX-02/TX-02-ZN3QQVKK"

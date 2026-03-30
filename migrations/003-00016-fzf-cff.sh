@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bash function: cdff - fuzzy find a file and cd into its parent directory
+# fzf: bash function: cdff - fuzzy find a file and cd into its parent directory
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

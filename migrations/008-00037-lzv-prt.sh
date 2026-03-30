@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lazyvim extra: prettier code formatting
+# neovim: lazyvim extra: prettier code formatting
 set -euo pipefail
 
 LAZYVIM="$HOME/.config/nvim/lazyvim.json"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# neovim-cdexit: rollback neovim keymaps: quit-and-cd-shell (leader-qd) and quit-to-home (leader-qh)
 set -euo pipefail
 
 KEYMAPS="$HOME/.config/nvim/lua/config/keymaps.lua"

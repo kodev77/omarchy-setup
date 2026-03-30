@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback waybar font to JetBrainsMono
+# berkeley: rollback waybar font to JetBrainsMono
 set -euo pipefail
 
 WAYBAR_CSS="$HOME/.config/waybar/style.css"

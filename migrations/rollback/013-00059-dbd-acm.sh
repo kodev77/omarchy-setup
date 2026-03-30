@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback dadbod autocmds: dbui line select, dbout auto-format with frozen headers, dbselect command
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod-autocmds.lua"

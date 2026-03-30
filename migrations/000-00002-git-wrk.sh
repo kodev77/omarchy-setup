@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# work-specific git config for rpc repos
+# hello: work-specific git config for rpc repos
 set -euo pipefail
 
 echo "writing gitconfig.work..."

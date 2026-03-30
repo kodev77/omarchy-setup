@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dataverse: rollback dadbod table helpers for dataverse (list, columns, count)
 set -euo pipefail
 
 FILE="$HOME/.config/nvim/lua/util/dadbod-tables/dataverse.lua"

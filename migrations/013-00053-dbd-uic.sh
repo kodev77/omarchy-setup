@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dadbod-ui plugin spec: database browser sidebar with nerd fonts and saved connections
+# dadbod: dadbod-ui plugin spec: database browser sidebar with nerd fonts and saved connections
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

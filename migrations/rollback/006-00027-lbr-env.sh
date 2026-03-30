@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# libre: rollback LibreOffice Wayland scaling fix
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

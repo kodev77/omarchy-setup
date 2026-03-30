@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dotnet: rollback lazyvim extra: dotnet language support
 set -euo pipefail
 
 LAZYVIM="$HOME/.config/nvim/lazyvim.json"

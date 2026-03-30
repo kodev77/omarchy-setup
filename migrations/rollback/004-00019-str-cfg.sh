@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback starship config
+# terminal: rollback starship config
 set -euo pipefail
 
 STARSHIP="$HOME/.config/starship.toml"

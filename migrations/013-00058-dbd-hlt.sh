@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dbout highlight groups for borders, headers, types, nulls; re-applied on colorscheme change
+# dadbod: dbout highlight groups for borders, headers, types, nulls; re-applied on colorscheme change
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

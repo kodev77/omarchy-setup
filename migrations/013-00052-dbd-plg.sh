@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vim-dadbod plugin spec: core database interface layer, lazy-loaded by dadbod-ui
+# dadbod: vim-dadbod plugin spec: core database interface layer, lazy-loaded by dadbod-ui
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# git config additions: user, work includeif, diffview mergetool, colors, extra aliases, lfs
+# hello: git config additions: user, work includeif, diffview mergetool, colors, extra aliases, lfs
 set -euo pipefail
 
 CONFIG="$HOME/.config/git/config"

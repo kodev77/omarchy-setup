@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# azure artifacts credential provider for private nuget feeds
+# dotnet: azure artifacts credential provider for private nuget feeds
 set -euo pipefail
 
 if [[ -d "$HOME/.nuget/plugins/netcore/CredentialProvider.Microsoft" ]]; then

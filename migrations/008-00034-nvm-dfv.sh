@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim diffview plugin with git diff keybindings
+# neovim: neovim diffview plugin with git diff keybindings
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

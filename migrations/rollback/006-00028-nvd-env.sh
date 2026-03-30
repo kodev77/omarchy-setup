@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# libre: rollback NVIDIA Hyprland env vars (only on machines with NVIDIA GPU)
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

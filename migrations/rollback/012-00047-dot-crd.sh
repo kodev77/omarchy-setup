@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dotnet: rollback azure artifacts credential provider for private nuget feeds
 set -euo pipefail
 
 CRED_DIR="$HOME/.nuget/plugins/netcore/CredentialProvider.Microsoft"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# neovim-cdexit: rollback bash nvim cwd hook and cursor styling
 set -euo pipefail
 
 if ! grep -q '# --- BEGIN ko omarchy-setup nvim-cdexit ---' "$HOME/.bashrc" 2>/dev/null; then

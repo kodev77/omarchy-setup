@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dadbod table helpers for dataverse (list, columns, count)
+# dataverse: dadbod table helpers for dataverse (list, columns, count)
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

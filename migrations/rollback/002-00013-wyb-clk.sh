@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback waybar clock format
+# waybar: rollback waybar clock format
 set -euo pipefail
 
 WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"

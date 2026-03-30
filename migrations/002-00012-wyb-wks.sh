@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# waybar: add persistent workspaces 6-10
+# waybar: waybar: add persistent workspaces 6-10
 set -euo pipefail
 
 WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"

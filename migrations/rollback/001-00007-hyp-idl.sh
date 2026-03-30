@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback hyprland idle settings
+# hyprland: rollback hyprland idle settings
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

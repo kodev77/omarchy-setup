@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# waybar: bar height, font size, bold styling
+# waybar: waybar: bar height, font size, bold styling
 set -euo pipefail
 
 # --- waybar/config.jsonc: bar height ---

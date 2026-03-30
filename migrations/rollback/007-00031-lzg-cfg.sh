@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# lazygit: rollback lazygit config: custom log format with short hash, dim message, and auto decorations
 set -euo pipefail
 
 CONFIG="$HOME/.config/lazygit/config.yml"

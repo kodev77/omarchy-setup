@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lazyvim extra: dotnet language support
+# dotnet: lazyvim extra: dotnet language support
 set -euo pipefail
 
 LAZYVIM="$HOME/.config/nvim/lazyvim.json"

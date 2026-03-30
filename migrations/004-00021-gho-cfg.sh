@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ghostty patches: blinking cursor, custom cursor color, theme load order
+# terminal: ghostty patches: blinking cursor, custom cursor color, theme load order
 set -euo pipefail
 
 GHOSTTY="$HOME/.config/ghostty/config"

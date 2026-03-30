@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sql server table helpers: column inspector with pk/fk constraints, data types, and nullability
+# sqlserver: sql server table helpers: column inspector with pk/fk constraints, data types, and nullability
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

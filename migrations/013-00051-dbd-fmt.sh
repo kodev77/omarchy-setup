@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim dadbod-format utility module (used by dadbod plugins)
+# dadbod: neovim dadbod-format utility module (used by dadbod plugins)
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# mysql: rollback mysql/mariadb table helpers: custom list (limit 200) and count queries for dadbod-ui
 set -euo pipefail
 
 FILE="$HOME/.config/nvim/lua/util/dadbod-tables/mysql.lua"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bash function: cds - unified fuzzy search across dirs, files, and contents
+# fzf: bash function: cds - unified fuzzy search across dirs, files, and contents
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim neo-tree folder icon and root name highlight colors
+# neovim: neovim neo-tree folder icon and root name highlight colors
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

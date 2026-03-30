@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback terminal calendar app
+# hyprland: rollback terminal calendar app
 set -euo pipefail
 
 if pacman -Qi lvsk-calendar &>/dev/null; then

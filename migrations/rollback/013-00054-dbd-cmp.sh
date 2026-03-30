@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback dadbod-completion plugin spec: sql autocomplete source for table and column names
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod-completion.lua"

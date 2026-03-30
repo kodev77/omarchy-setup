@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback ghostty font to JetBrainsMono
+# berkeley: rollback ghostty font to JetBrainsMono
 set -euo pipefail
 
 GHOSTTY_CFG="$HOME/.config/ghostty/config"

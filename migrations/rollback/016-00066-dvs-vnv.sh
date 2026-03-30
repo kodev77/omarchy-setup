@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dataverse: rollback python venv with requests and tabulate for the dvquery dataverse cli tool
 set -euo pipefail
 
 VENV_DIR="$HOME/.local/share/dvquery-venv"

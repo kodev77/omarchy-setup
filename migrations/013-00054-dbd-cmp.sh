@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dadbod-completion plugin spec: sql autocomplete source for table and column names
+# dadbod: dadbod-completion plugin spec: sql autocomplete source for table and column names
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

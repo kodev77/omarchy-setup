@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LibreOffice toolbar/sidebar icon size fix for HiDPI/Wayland
+# libre: LibreOffice toolbar/sidebar icon size fix for HiDPI/Wayland
 set -euo pipefail
 
 XCU="$HOME/.config/libreoffice/4/user/registrymodifications.xcu"

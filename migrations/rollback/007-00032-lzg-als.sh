@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# lazygit: rollback bashrc: lazygit alias
 set -euo pipefail
 
 if ! grep -q '# --- BEGIN ko omarchy-setup lazygit ---' "$HOME/.bashrc" 2>/dev/null; then

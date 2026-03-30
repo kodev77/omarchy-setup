@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback vim-dadbod plugin spec: core database interface layer, lazy-loaded by dadbod-ui
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod.lua"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dataverse: rollback vimscript db adapter routing queries through dvquery cli
 set -euo pipefail
 
 ADAPTER="$HOME/.config/nvim/autoload/db/adapter/dataverse.vim"

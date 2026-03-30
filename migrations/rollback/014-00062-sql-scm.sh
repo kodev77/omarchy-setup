@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# sqlserver: rollback custom sql server cli wrapper using pymssql/freetds for azure sql queries
 set -euo pipefail
 
 if [[ ! -f "$HOME/.local/bin/sqlcmd" ]]; then

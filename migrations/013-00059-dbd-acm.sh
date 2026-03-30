@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# dadbod autocmds: dbui line select, dbout auto-format with frozen headers, dbselect command
+# dadbod: dadbod autocmds: dbui line select, dbout auto-format with frozen headers, dbselect command
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

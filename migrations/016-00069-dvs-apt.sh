@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vimscript db adapter routing queries through dvquery cli
+# dataverse: vimscript db adapter routing queries through dvquery cli
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

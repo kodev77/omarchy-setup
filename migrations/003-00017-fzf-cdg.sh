@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bash function: cdg - grep/rg (ripgrep) file contents and cd into matched file's parent
+# fzf: bash function: cdg - grep/rg (ripgrep) file contents and cd into matched file's parent
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

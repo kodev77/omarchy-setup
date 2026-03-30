@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hyprland monitor setup: external monitor + laptop mirrored, GDK_SCALE fix
+# hello: hyprland monitor setup: external monitor + laptop mirrored, GDK_SCALE fix
 set -euo pipefail
 
 MONITORS_CONF="$HOME/.config/hypr/monitors.conf"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback hyprlock font to JetBrainsMono
+# berkeley: rollback hyprlock font to JetBrainsMono
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

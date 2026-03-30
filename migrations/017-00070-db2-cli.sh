@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim db2 utility module (used by the db2 plugin spec)
+# db2: neovim db2 utility module (used by the db2 plugin spec)
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

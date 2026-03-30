@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bashrc: PATH and ll alias
+# terminal: bashrc: PATH and ll alias
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

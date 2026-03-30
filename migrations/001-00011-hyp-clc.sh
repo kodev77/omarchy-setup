@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hyprland window rule for calendar app sizing
+# hyprland: hyprland window rule for calendar app sizing
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

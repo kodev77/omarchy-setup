@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# mysql/mariadb table helpers: custom list (limit 200) and count queries for dadbod-ui
+# mysql: mysql/mariadb table helpers: custom list (limit 200) and count queries for dadbod-ui
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

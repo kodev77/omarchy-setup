@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dotnet: rollback .net sdk and runtime for building and running c# applications and web apis
 set -euo pipefail
 
 echo "removing dotnet packages..."

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hyprland lock screen font swap to Berkeley Mono
+# berkeley: hyprland lock screen font swap to Berkeley Mono
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

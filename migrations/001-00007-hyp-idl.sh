@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hyprland idle: 15-min screensaver, disable lock and dpms
+# hyprland: hyprland idle: 15-min screensaver, disable lock and dpms
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

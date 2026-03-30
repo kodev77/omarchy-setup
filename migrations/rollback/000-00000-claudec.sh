@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# uninstall claude code cli
+# hello: uninstall claude code cli
 set -euo pipefail
 
 if command -v claude &>/dev/null; then

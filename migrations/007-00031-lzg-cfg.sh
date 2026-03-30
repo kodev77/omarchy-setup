@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lazygit config: custom log format with short hash, dim message, and auto decorations
+# lazygit: lazygit config: custom log format with short hash, dim message, and auto decorations
 set -euo pipefail
 
 CONFIG="$HOME/.config/lazygit/config.yml"

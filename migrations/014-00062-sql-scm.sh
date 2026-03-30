@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# custom sql server cli wrapper using pymssql/freetds for azure sql queries
+# sqlserver: custom sql server cli wrapper using pymssql/freetds for azure sql queries
 set -euo pipefail
 
 mkdir -p "$HOME/.local/bin"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback cds function
+# fzf: rollback cds function
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

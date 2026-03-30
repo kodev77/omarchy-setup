@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# azure: rollback command-line interface for managing azure resources, deployments, and subscriptions
 set -euo pipefail
 
 if ! pacman -Qi azure-cli &>/dev/null; then

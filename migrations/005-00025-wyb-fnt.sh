@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# waybar: swap font to Berkeley Mono
+# berkeley: waybar: swap font to Berkeley Mono
 set -euo pipefail
 
 WAYBAR_CSS="$HOME/.config/waybar/style.css"

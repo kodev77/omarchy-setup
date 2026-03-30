@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# neovim: rollback neovim diffview plugin with git diff keybindings
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/diffview.lua"

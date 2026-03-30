@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# fontconfig: swap monospace default to Berkeley Mono
+# berkeley: fontconfig: swap monospace default to Berkeley Mono
 set -euo pipefail
 
 FONTS_CONF="$HOME/.config/fontconfig/fonts.conf"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback dadbod keybindings: dbui toggle, run line/selection/file, connection select, format output
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod-keymaps.lua"

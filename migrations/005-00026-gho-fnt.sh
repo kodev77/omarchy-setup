@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ghostty: swap font to Berkeley Mono
+# berkeley: ghostty: swap font to Berkeley Mono
 set -euo pipefail
 
 GHOSTTY_CFG="$HOME/.config/ghostty/config"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback hyprland resize keybindings
+# hyprland: rollback hyprland resize keybindings
 set -euo pipefail
 
 HYPR="$HOME/.config/hypr"

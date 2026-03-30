@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim DAP launch config for C# test project
+# dotnet: neovim DAP launch config for C# test project
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

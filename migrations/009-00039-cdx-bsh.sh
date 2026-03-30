@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bash nvim cwd hook and cursor styling
+# neovim-cdexit: bash nvim cwd hook and cursor styling
 set -euo pipefail
 
 if grep -q '__nvim_cwd_hook' "$HOME/.bashrc" 2>/dev/null; then

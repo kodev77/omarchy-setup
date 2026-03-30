@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback cdg function
+# fzf: rollback cdg function
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback bash aliases
+# terminal: rollback bash aliases
 set -euo pipefail
 
 BASHRC="$HOME/.bashrc"

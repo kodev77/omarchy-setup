@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# waybar: 12h clock format and calendar right-click
+# waybar: waybar: 12h clock format and calendar right-click
 set -euo pipefail
 
 WAYBAR_CFG="$HOME/.config/waybar/config.jsonc"

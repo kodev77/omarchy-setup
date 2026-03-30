@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback neovim dadbod-format utility module (used by dadbod plugins)
 set -euo pipefail
 
 FILE="$HOME/.config/nvim/lua/util/dadbod-format.lua"

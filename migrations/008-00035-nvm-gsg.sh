@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# neovim gitsigns keybinding overrides for hunk navigation and staging
+# neovim: neovim gitsigns keybinding overrides for hunk navigation and staging
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

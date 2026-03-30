@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback dbout highlight groups for borders, headers, types, nulls; re-applied on colorscheme change
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod-highlights.lua"

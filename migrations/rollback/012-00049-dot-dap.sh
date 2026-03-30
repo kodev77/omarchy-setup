@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dotnet: rollback neovim DAP launch config for C# test project
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dap-dotnet.lua"

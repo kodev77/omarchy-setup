@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback fontconfig monospace to JetBrainsMono
+# berkeley: rollback fontconfig monospace to JetBrainsMono
 set -euo pipefail
 
 FONTS_CONF="$HOME/.config/fontconfig/fonts.conf"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# neovim: rollback neovim neo-tree folder icon and root name highlight colors
 set -euo pipefail
 
 TRANSPARENCY="$HOME/.config/nvim/plugin/after/transparency.lua"

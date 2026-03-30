@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# remove work-specific git config
+# hello: remove work-specific git config
 set -euo pipefail
 
 if [[ -f "$HOME/.gitconfig.work" ]]; then

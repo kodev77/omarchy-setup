@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# .net sdk and runtime for building and running c# applications and web apis
+# dotnet: .net sdk and runtime for building and running c# applications and web apis
 set -euo pipefail
 
 echo "installing/updating dotnet packages..."

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# neovim: rollback neovim gitsigns keybinding overrides for hunk navigation and staging
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/gitsigns.lua"

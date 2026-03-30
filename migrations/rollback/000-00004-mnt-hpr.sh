@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# rollback hyprland monitor setup
+# hello: rollback hyprland monitor setup
 set -euo pipefail
 
 MONITORS_CONF="$HOME/.config/hypr/monitors.conf"

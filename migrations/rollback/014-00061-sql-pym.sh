@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# sqlserver: rollback python library for connecting to sql server databases via freetds
 set -euo pipefail
 
 echo "uninstalling pymssql..."

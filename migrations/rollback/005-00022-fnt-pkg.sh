@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# remove Berkeley Mono font
+# berkeley: remove Berkeley Mono font
 set -euo pipefail
 
 FONT_DST="$HOME/.local/share/fonts"

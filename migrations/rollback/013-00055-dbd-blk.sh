@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback blink.cmp integration: registers dadbod-completion as a source for sql filetypes
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod-blink.lua"

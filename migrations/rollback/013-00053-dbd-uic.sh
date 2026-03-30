@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dadbod: rollback dadbod-ui plugin spec: database browser sidebar with nerd fonts and saved connections
 set -euo pipefail
 
 PLUGIN="$HOME/.config/nvim/lua/plugins/dadbod-ui.lua"

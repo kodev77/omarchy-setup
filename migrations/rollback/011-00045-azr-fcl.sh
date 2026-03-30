@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# azure: rollback cli for creating, testing, and deploying azure functions locally and to the cloud
 set -euo pipefail
 
 if ! pacman -Qi azure-functions-core-tools-bin &>/dev/null; then

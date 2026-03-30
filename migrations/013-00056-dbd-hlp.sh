@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lua utilities for query execution, visual selection, connection picker, and popup clipboard
+# dadbod: lua utilities for query execution, visual selection, connection picker, and popup clipboard
 set -euo pipefail
 
 NVIM_DIR="$HOME/.config/nvim"

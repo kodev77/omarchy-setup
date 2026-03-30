@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# terminal calendar app for waybar clock right-click
+# hyprland: terminal calendar app for waybar clock right-click
 set -euo pipefail
 
 if pacman -Qi lvsk-calendar &>/dev/null; then

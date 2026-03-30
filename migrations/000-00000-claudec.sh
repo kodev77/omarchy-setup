@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install claude code cli
+# hello: install claude code cli
 set -euo pipefail
 
 if command -v claude &>/dev/null; then

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# NVIDIA Hyprland env vars (only on machines with NVIDIA GPU)
+# libre: NVIDIA Hyprland env vars (only on machines with NVIDIA GPU)
 set -euo pipefail
 
 if ! lspci 2>/dev/null | grep -qi nvidia; then
