@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-MIGRATIONS_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-REPO_DIR="$(cd "$MIGRATIONS_DIR/.." && pwd)"
+REPO_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
+MIGRATIONS_DIR="$REPO_DIR/scripts/migration"
 export REPO_DIR MIGRATIONS_DIR
 
 STATE_DIR="$HOME/.local/state/kodev77/omarchy-setup/migrations"
@@ -12,9 +12,9 @@ declare -A GROUP_NAMES=(
   [004]="terminal" [005]="berkeley" [006]="libre" [007]="lazygit"
   [008]="neovim" [009]="neovim-cdexit" [010]="typescript" [011]="azure"
   [012]="dotnet" [013]="dadbod" [014]="sqlserver" [015]="mysql"
-  [016]="dataverse" [017]="db2"
+  [016]="dataverse" [017]="db2" [018]="updates"
 )
-GROUP_ORDER=(000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017)
+GROUP_ORDER=(000 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015 016 017 018)
 
 red()   { printf '\033[0;31m%s\033[0m\n' "$*"; }
 green() { printf '\033[0;32m%s\033[0m\n' "$*"; }
@@ -23,7 +23,7 @@ blue()  { printf '\033[0;34m%s\033[0m\n' "$*"; }
 # --- build script index (once) ---
 declare -A GROUP_SCRIPTS  # group -> newline-separated list of filenames
 
-for script in "$MIGRATIONS_DIR"/rollback/[0-9]*.sh; do
+for script in "$REPO_DIR"/scripts/rollback/[0-9]*.sh; do
   [ -f "$script" ] || continue
   local_name="$(basename "$script")"
   group="${local_name:0:3}"
@@ -86,7 +86,7 @@ rollback_group() {
     any_rolled_back=true
     echo "$name"
     echo ""
-    if ! bash "$MIGRATIONS_DIR/rollback/$name"; then
+    if ! bash "$REPO_DIR/scripts/rollback/$name"; then
       echo ""
       red "fail $name"
       echo ""
@@ -176,7 +176,7 @@ if [[ "$selection" == "[Rollback All]" ]]; then
   fi
 elif [[ "$selection" == *.sh ]]; then
   # single script rollback
-  if [[ ! -f "$MIGRATIONS_DIR/rollback/$selection" ]]; then
+  if [[ ! -f "$REPO_DIR/scripts/rollback/$selection" ]]; then
     red "rollback script not found: $selection"
     exit 1
   fi
@@ -186,7 +186,7 @@ elif [[ "$selection" == *.sh ]]; then
   else
     echo "$selection"
     echo ""
-    if bash "$MIGRATIONS_DIR/rollback/$selection"; then
+    if bash "$REPO_DIR/scripts/rollback/$selection"; then
       unmark_migrated "$selection"
       echo ""
       green "rollback complete"
